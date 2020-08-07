@@ -1,13 +1,13 @@
 {
   "name": "slay-the-spire",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": ":sweat_drops: Slay the Spire helper",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SudoLand/Slay-The-Spire.git"
   },
   "keywords": [
-    "Pattern"
+    "SlayTheSpire"
   ],
   "author": "WMXPY",
   "license": "MIT",
