@@ -9,7 +9,7 @@ import { readTextFile } from "@sudoo/io";
 import { expect } from 'chai';
 import * as Chance from 'chance';
 import { decryptSaveFile, SaveFile } from '../../src';
-import { joinExamplePath } from '../util';
+import { joinStaticPath } from '../util';
 
 describe('Given (Start) Scenario', (): void => {
 
@@ -18,7 +18,7 @@ describe('Given (Start) Scenario', (): void => {
 
     it('should be able to parse example', async (): Promise<void> => {
 
-        const content: string = await readTextFile(joinExamplePath('start.autosave'));
+        const content: string = await readTextFile(joinStaticPath('start.autosave'));
         const parsed: SaveFile = decryptSaveFile(content);
 
         console.log(parsed);

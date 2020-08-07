@@ -11,3 +11,8 @@ export const joinExamplePath = (...paths: string[]): string => {
 
     return Path.resolve(__dirname, '..', 'example', ...paths);
 };
+
+export const joinStaticPath = (...paths: string[]): string => {
+
+    return Path.resolve(__dirname, '..', 'static', ...paths);
+};
