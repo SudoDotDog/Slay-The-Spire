@@ -8,28 +8,7 @@
 import { attemptMarkDir, readTextFile, removeFile, writeTextFile } from "@sudoo/io";
 import * as Path from "path";
 import { decryptSaveFile, encryptSaveFile, SaveFile } from "../src";
-
-const escCharCode: number = 27;
-
-const waitForKeyPress = (): Promise<boolean> => {
-
-    process.stdin.setRawMode(true);
-
-    return new Promise<boolean>((resolve: (result: boolean) => void) => {
-
-        process.stdin.on('data', (buffer: Buffer) => {
-
-            const charCode: number = buffer.toString().charCodeAt(0);
-            process.stdin.setRawMode(false);
-
-            if (charCode === escCharCode) {
-                resolve(false);
-            } else {
-                resolve(true);
-            }
-        });
-    });
-};
+import { waitForKeyPress } from "./input";
 
 (async () => {
 
