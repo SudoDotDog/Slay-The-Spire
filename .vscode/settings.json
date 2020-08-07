@@ -5,6 +5,7 @@
         "autosave",
         "codecov",
         "mocharc",
+        "reparsed",
         "sudoo",
         "triforce",
         "tshook"
