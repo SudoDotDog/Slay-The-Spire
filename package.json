@@ -1,0 +1,37 @@
+{
+  "name": "slay-the-spire",
+  "version": "1.0.0",
+  "description": ":sweat_drops: Slay the Spire helper",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SudoLand/Slay-The-Spire.git"
+  },
+  "keywords": [
+    "Pattern"
+  ],
+  "author": "WMXPY",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SudoLand/Slay-The-Spire/issues"
+  },
+  "homepage": "https://github.com/SudoLand/Slay-The-Spire#readme",
+  "devDependencies": {
+    "@sudoo/io": "^1.8.0",
+    "@sudoo/triforce": "^2.7.11"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ],
+    "instrument": true,
+    "reporter": [
+      "json",
+      "text-summary"
+    ],
+    "report-dir": "coverage",
+    "sourceMap": true
+  }
+}
