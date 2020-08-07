@@ -23,9 +23,11 @@ const xorBinary = (data: string): string => {
     const keyData: number[] = byteArray('key');
 
     for (let i = 0; i < data.length; i++) {
+
         buffer.push(
             // eslint-disable-next-line no-bitwise
-            String.fromCharCode(byteData[i] ^ keyData[i % keyData.length]));
+            String.fromCharCode(byteData[i] ^ keyData[i % keyData.length]),
+        );
     }
 
     return buffer.join('');
@@ -33,7 +35,7 @@ const xorBinary = (data: string): string => {
 
 export const decryptSaveFile = (content: string): SaveFile => {
 
-    const binary: string = Buffer.from(content).toString('binary');
+    const binary: string = Buffer.from(content, 'base64').toString('binary');
     const parsed: string = xorBinary(binary);
 
     return JSON.parse(parsed);
