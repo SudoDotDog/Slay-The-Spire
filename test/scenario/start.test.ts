@@ -8,8 +8,8 @@
 import { readTextFile } from "@sudoo/io";
 import { expect } from 'chai';
 import * as Chance from 'chance';
+import { joinStaticPath } from '../../example/util';
 import { decryptSaveFile, SaveFile } from '../../src';
-import { joinStaticPath } from '../util';
 
 describe('Given (Start) Scenario', (): void => {
 
