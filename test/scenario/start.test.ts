@@ -21,8 +21,6 @@ describe('Given (Start) Scenario', (): void => {
         const content: string = await readTextFile(joinStaticPath('start.autosave'));
         const parsed: SaveFile = decryptSaveFile(content);
 
-        console.log(parsed);
-
         expect(typeof parsed).to.be.equal('object');
     });
 });
