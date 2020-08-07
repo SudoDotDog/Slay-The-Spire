@@ -15,22 +15,17 @@ const waitForKeyPress = (): Promise<boolean> => {
 
     process.stdin.setRawMode(true);
 
-    return new Promise((resolve: () => void) => {
+    return new Promise<boolean>((resolve: (result: boolean) => void) => {
 
         process.stdin.on('data', (buffer: Buffer) => {
 
             const charCode: number = buffer.toString().charCodeAt(0);
             process.stdin.setRawMode(false);
 
-            console.log(charCode);
-
             if (charCode === escCharCode) {
-
-                console.log('Abandoned');
-                process.exit();
+                resolve(false);
             } else {
-
-                resolve();
+                resolve(true);
             }
         });
     });
@@ -72,7 +67,11 @@ const waitForKeyPress = (): Promise<boolean> => {
     console.log('Press any key to continue...');
     console.log('Press <ESC> to cancel...');
 
-    await waitForKeyPress();
+    const shouldContinue: boolean = await waitForKeyPress();
+    if (!shouldContinue) {
+        console.log('ABANDONED!');
+        process.exit();
+    }
 
     const afterContent: string = await readTextFile(tempJsonLocation);
     await removeFile(tempJsonLocation);
