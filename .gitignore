@@ -73,6 +73,7 @@ typings/
 
 # Temp
 temp
+temp.txt
 
 # Yarn Integrity file
 .yarn-integrity
