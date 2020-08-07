@@ -5,7 +5,7 @@
  * @override Example
  */
 
-import { readTextFile, writeTextFile, removeFile } from "@sudoo/io";
+import { readTextFile, writeTextFile, removeFile, attemptMarkDir } from "@sudoo/io";
 import { decryptSaveFile, SaveFile, encryptSaveFile } from "../src";
 import { waitForKeyPress } from "./util";
 import * as Path from "path";
@@ -29,13 +29,19 @@ import * as Path from "path";
     const backupFileName: string = `${baseFileName}.backup.autosave`;
 
     const beforeContent: string = await readTextFile(fileName);
-    await writeTextFile(backupFileName, beforeContent);
+
+    const tempFolderPath: string = Path.resolve('temp');
+    await attemptMarkDir(tempFolderPath);
+
+    const backupLocation: string = Path.join(tempFolderPath, backupFileName);
+    await writeTextFile(backupLocation, beforeContent);
 
     const decrypted: SaveFile = decryptSaveFile(beforeContent);
 
-    await writeTextFile('temp.json', JSON.stringify(decrypted, null, 2));
+    const tempJsonLocation: string = Path.join(tempFolderPath, 'temp.json');
+    await writeTextFile(tempJsonLocation, JSON.stringify(decrypted, null, 2));
 
-    const tempJsonLocation: string = Path.resolve('temp', 'temp.json');
+    console.log(`Backup at <${backupLocation}>`);
     console.log(`Edit <${tempJsonLocation}>`);
     console.log('Press any key to continue...');
 
