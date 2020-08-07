@@ -6,4 +6,5 @@
 
 export * from "./declare";
 export * from "./decrypt";
+export * from "./encrypt";
 
