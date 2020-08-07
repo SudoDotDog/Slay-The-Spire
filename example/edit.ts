@@ -55,4 +55,5 @@ import * as Path from "path";
     await writeTextFile(fileName, encrypted);
 
     console.log('DONE!');
+    process.exit();
 })();
