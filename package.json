@@ -1,6 +1,6 @@
 {
   "name": "slay-the-spire",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": ":sweat_drops: Slay the Spire helper",
   "repository": {
     "type": "git",
@@ -17,7 +17,7 @@
   "homepage": "https://github.com/SudoDotDog/Slay-The-Spire#readme",
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
-    "@sudoo/triforce": "^2.7.11"
+    "@sudoo/triforce": "^2.9.25"
   },
   "nyc": {
     "extension": [
