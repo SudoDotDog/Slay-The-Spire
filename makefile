@@ -14,14 +14,6 @@ dev:
 	@echo "[INFO] Building for development"
 	@NODE_ENV=development $(tsc) --p $(dev)
 
-edit:
-	@echo "[INFO] Edit $(FILE)"
-	@NODE_ENV=production $(ts_node) --project $(build) example/edit.ts "$(FILE)"
-
-run-example:
-	@echo "[INFO] Running Example $(EXAMPLE)"
-	@NODE_ENV=development $(ts_node) --project $(dev) example/$(EXAMPLE).ts
-
 build:
 	@echo "[INFO] Building for production"
 	@NODE_ENV=production $(tsc) --p $(build)
@@ -56,6 +48,10 @@ install-prod:
 	@echo "[INFO] Installing Dependencies"
 	@yarn install --production=true
 
+outdated: install
+	@echo "[INFO] Checking Outdated Dependencies"
+	@yarn outdated
+
 license: clean
 	@echo "[INFO] Sign files"
 	@NODE_ENV=development $(ts_node) script/license.ts
@@ -64,10 +60,10 @@ clean:
 	@echo "[INFO] Cleaning release files"
 	@NODE_ENV=development $(ts_node) script/clean-app.ts
 
-publish: install tests lint license build
+publish: install lint tests license build
 	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public
 
-publish-dry-run: install tests lint license build
-	@echo "[INFO] Publishing package (Dry Run)"
+publish-dry-run: install lint tests license build
+	@echo "[INFO] Publishing package"
 	@cd app && npm publish --access=public --dry-run
