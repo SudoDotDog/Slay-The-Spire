@@ -4,7 +4,7 @@
   "description": ":sweat_drops: Slay the Spire helper",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SudoLand/Slay-The-Spire.git"
+    "url": "git+https://github.com/SudoDotDog/Slay-The-Spire.git"
   },
   "keywords": [
     "SlayTheSpire"
@@ -12,9 +12,9 @@
   "author": "WMXPY",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SudoLand/Slay-The-Spire/issues"
+    "url": "https://github.com/SudoDotDog/Slay-The-Spire/issues"
   },
-  "homepage": "https://github.com/SudoLand/Slay-The-Spire#readme",
+  "homepage": "https://github.com/SudoDotDog/Slay-The-Spire#readme",
   "devDependencies": {
     "@sudoo/io": "^1.8.0",
     "@sudoo/triforce": "^2.7.11"
